@@ -9,26 +9,26 @@ public class MyArrayStack<Item> {
     }
 
     public void push(Item item) {
-        if(size == arr.length) {
+        if (size == arr.length) {
             resize(arr.length * 2);
         }
         arr[size++] = item;
     }
 
     public Item pop() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
         Item item = arr[size - 1];
         size--;
-        if(size > 0 && size == arr.length / 4) {
+        if (size > 0 && size == arr.length / 4) {
             resize(arr.length / 2);
         }
         return item;
     }
 
     public Item peek() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
         return arr[size - 1];

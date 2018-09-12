@@ -11,7 +11,7 @@ public class MyQueue<Item> {
     }
 
     public void enqueue(Item item) {
-        if(size == queue.length) {
+        if (size == queue.length) {
             resize(queue.length * 2);
         }
         queue[last] = item;
@@ -20,21 +20,21 @@ public class MyQueue<Item> {
     }
 
     public Item dequeue() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
         Item item = queue[first];
         queue[first] = null;
         size--;
         first = (first + 1) % queue.length;
-        if(size > 0 && size == queue.length / 4) {
+        if (size > 0 && size == queue.length / 4) {
             resize(queue.length / 2);
         }
         return item;
     }
 
     public Item firstElement() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new NoSuchElementException();
         }
         return queue[first];
